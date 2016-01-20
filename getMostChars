@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>获取一个字符串当中出现次数最多的字符</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var str="abcaa11aaaabbb随机一一一一一一一一一一一一一一一一串汉字bd1dddddddddcccc"
+			
+			//方法一
+			function mostLetter(s){
+				var len = s.length,arr = {},result = "方法一："+s+"当中出现次数最多的字符是";			
+				while (len--){
+					var letter = s.charAt(len);				
+					if (!arr[letter]){
+						arr[letter] = 1;
+					}else{
+						arr[letter] +=1;
+					}
+				}				
+				var k = 0,most;
+				for (var c in arr) {
+					if(arr[c] > k){
+						most=c;
+						k=arr[c]
+					}               
+	            }
+				document.write(result+most);
+				return most;
+			}
+			console.log(mostLetter(str));
+			
+			//方法二
+			String.prototype.replaceAll = function(s1,s2){
+			　　return this.replace(new RegExp(s1,"gm"),s2);
+			　}
+			function mostLetter2(s){		
+				var len = s.length,l=len,n = 0,letter,most,result ="<br>方法二："+ s+"当中出现次数最多的字符是"; 
+				//len为数组的长度，每次循环减小；n为每次被替换掉的字母的数量；letter记录每次被替换掉的那个字母；most记录比对后最多的字母。
+				for (var i=0; i<=l; i++){
+					if(s.length>0){
+						letter=s[0],len = s.length,s = s.replaceAll(letter,'');	
+						if(len-s.length>n){n = len-s.length,most=letter}
+					}else{	
+						document.write(result+most);
+						return most;
+					}
+				}
+				
+			}
+			mostLetter2(str);
+			
+			
+		</script>
+	</body>
+</html>
