@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>css3饼图</title>
+		<title>css3icon和饼图</title>
 		<style>
 		body{font-size: 20px;}
 			.box{position:relative; width: 10em; height: 10em; border-radius: 50%; background: #62c764; display: inline-block; margin: 0 20px;-webkit-transition: all 0.5s ease-in;}
